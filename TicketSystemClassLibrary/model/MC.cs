@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace TicketSystemClassLibrary.model
 {
-    public class Car
+    public class MC
     {
-
         // Properties
         public string LicensePlate { get; set; }
         public DateTime Date { get; set; }
@@ -18,15 +17,16 @@ namespace TicketSystemClassLibrary.model
         // methods
         public double Price(double price)
         {
-            //Price = 240.0;
-            return 240.00;
+            //Price = 125.0;
+            return 125.00;
         }
 
-        public string VehicleType(string Car)
+        public string VehicleType(string MC)
         {
-            Vehicle = Car;
+            Vehicle = MC;
             return Vehicle;
         }
+
 
         public override string ToString()
         {

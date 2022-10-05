@@ -23,7 +23,7 @@ namespace TicketSystemClassLibrary.model.Tests
             c.price = price;
 
             // Assert
-            Assert.AreEqual(expectedPrice,price);
+            Assert.AreEqual(expectedPrice, price);
 
         }
 
@@ -40,9 +40,40 @@ namespace TicketSystemClassLibrary.model.Tests
             c.price = failprice;
 
             //Assert
-            Assert.AreEqual(failprice,price);
+            Assert.AreEqual(failprice, price);
 
         }
 
+        [TestMethod()]
+        [DataRow("Car")]
+        [DataRow("car")]
+        public void VehicleTypeTestOK(string OKvehicle)
+        {
+            // Arrange
+            Car c = new Car();
+            string expectedVehicle = OKvehicle;
+
+            // Act
+            c.Vehicle = OKvehicle;
+
+            Assert.AreEqual(expectedVehicle, c.Vehicle);
+        }
+
+        [TestMethod()]
+        [DataRow("  ")]
+        [DataRow(null)]
+        [DataRow("MC")]
+        [DataRow("mc")]
+        public void VehicleTypeTestFail(string failVehicle)
+        {
+            // Arrange
+            Car c = new Car();
+
+            // Act 
+            c.Vehicle = failVehicle;
+
+            // Assert
+            Assert.AreEqual(failVehicle,c.Vehicle);
+        }
     }
 }
