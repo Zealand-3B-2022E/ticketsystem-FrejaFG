@@ -10,7 +10,7 @@ namespace TicketSystemClassLibrary.model
     {
         // The class is abstract. it only exists when a spicifick instance is created
 
-        private string _licenseplate;
+        private string _licenseplate="";
         private DateTime _date;
         private double _price;
 
@@ -30,8 +30,8 @@ namespace TicketSystemClassLibrary.model
 
         public string Licenseplate
         {
-            get=>_licenseplate;
-            set=>_licenseplate=value;
+            get/*=>_licenseplate*/;
+            set/*=>_licenseplate=value*/;
         }
         public DateTime Date
         {
@@ -58,7 +58,7 @@ namespace TicketSystemClassLibrary.model
             }
             if (7 < licenseplate.Length)
             {
-                throw new ArgumentException("Nummerpladen må ikk indeholde mere end 7 karakterer.");
+                throw new ArgumentException("Nummerpladen må ikke indeholde mere end 7 karakterer.");
             }
         }
 

@@ -17,9 +17,9 @@ namespace TicketSystemClassLibrary.model.Tests
         [TestInitialize]
         public void BeforeEachTestMethod()
         {
-            v = new Vehicle(); 
+            v = new Vehicle();
         }
-           
+
 
         [TestMethod()]
         [DataRow("1 2")]
@@ -36,7 +36,23 @@ namespace TicketSystemClassLibrary.model.Tests
             v.Licenseplate = value;
 
             // ASSERT
-            Assert.AreEqual(expectedvale,value);
+            Assert.AreEqual(expectedvale, value);
+        }
+
+        [TestMethod()]
+        [DataRow("       ")]
+        [DataRow("12345678")]
+        [DataRow(" ")]
+        [DataRow("")]
+        public void LicenseplateFail(string licenseplate)
+        {
+            // Arrange
+            string failvalue = licenseplate;
+
+            // Act - Lambda udtryk i assert
+
+            // Assert
+            Assert.ThrowsException<ArgumentException>(() => v.Licenseplate = licenseplate);
         }
     }
 }
