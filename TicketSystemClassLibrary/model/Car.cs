@@ -6,20 +6,22 @@ using System.Threading.Tasks;
 
 namespace TicketSystemClassLibrary.model
 {
-    public class Car
+    public class Car:Vehicle
     {
 
         // Properties
-        public string LicensePlate { get; set; }
+        public string Licenseplate { get; set; }
         public DateTime Date { get; set; }
-        public double price;
+        public override double Price { get => carPrice; set => throw new NotImplementedException(); }
+
+        public double carPrice;
         public string Vehicle;
 
         // methods
-        public double Price(double price)
+        public double CarPrice(double carPrice)
         {
-            //Price = 240.0;
-            return 240.00;
+            carPrice = 240.0;
+            return carPrice;
         }
 
         public string VehicleType(string Car)
@@ -30,7 +32,7 @@ namespace TicketSystemClassLibrary.model
 
         public override string ToString()
         {
-            return $" {nameof(Price)}: {Price} {nameof(VehicleType)}: {VehicleType} ";
+            return $" {nameof(Licenseplate)}: {Licenseplate} {nameof(Date)}: {Date} {nameof(CarPrice)}: {CarPrice} {nameof(VehicleType)}: {VehicleType} ";
         }
     }
 }

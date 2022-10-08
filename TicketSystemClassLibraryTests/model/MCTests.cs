@@ -20,7 +20,7 @@ namespace TicketSystemClassLibrary.model.Tests
             double expectedPrice = price;
 
             // Arrange
-            mc.price = price;
+            mc.mcPrice = price;
 
             // Assert
             Assert.AreEqual(expectedPrice, price);
@@ -33,7 +33,7 @@ namespace TicketSystemClassLibrary.model.Tests
             double failPrice = price;
 
             // Act
-            mc.price = failPrice;
+            mc.mcPrice = failPrice;
 
             // Assert
             Assert.AreEqual(failPrice, price);

@@ -6,19 +6,21 @@ using System.Threading.Tasks;
 
 namespace TicketSystemClassLibrary.model
 {
-    public class MC
+    public class MC : Vehicle
     {
         // Properties
         public string LicensePlate { get; set; }
         public DateTime Date { get; set; }
-        public double price;
+        public override double Price { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public double mcPrice;
         public string Vehicle;
 
         // methods
-        public double Price(double price)
+        public double MCPrice(double mcPrice)
         {
-            //Price = 125.0;
-            return 125.00;
+            mcPrice = 125.0;
+            return mcPrice;
         }
 
         public string VehicleType(string MC)

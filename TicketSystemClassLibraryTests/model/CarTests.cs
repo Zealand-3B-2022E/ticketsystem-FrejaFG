@@ -11,6 +11,9 @@ namespace TicketSystemClassLibrary.model.Tests
     [TestClass()]
     public class CarTests
     {
+        // shared instance field
+        private Car car = null;
+
         [TestMethod()]
         [DataRow(240.0)]
         public void TestPriceOK(double price)
@@ -20,7 +23,7 @@ namespace TicketSystemClassLibrary.model.Tests
             double expectedPrice = price;
 
             // Act
-            c.price = price;
+            c.carPrice = price;
 
             // Assert
             Assert.AreEqual(expectedPrice, price);
@@ -37,7 +40,7 @@ namespace TicketSystemClassLibrary.model.Tests
             double failprice = price;
 
             //Act
-            c.price = failprice;
+           // c.price = failprice;
 
             //Assert
             Assert.AreEqual(failprice, price);
@@ -47,33 +50,35 @@ namespace TicketSystemClassLibrary.model.Tests
         [TestMethod()]
         [DataRow("Car")]
         [DataRow("car")]
-        public void VehicleTypeTestOK(string OKvehicle)
+        public void VehicleTypeTestOK(string vehicle)
         {
             // Arrange
             Car c = new Car();
-            string expectedVehicle = OKvehicle;
+            string expectedVehicle = vehicle;
 
             // Act
-            c.Vehicle = OKvehicle;
+            c.Vehicle = vehicle;
 
             Assert.AreEqual(expectedVehicle, c.Vehicle);
         }
 
         [TestMethod()]
         [DataRow("  ")]
-        [DataRow(null)]
+       // [DataRow(null)]
         [DataRow("MC")]
         [DataRow("mc")]
-        public void VehicleTypeTestFail(string failVehicle)
+        public void VehicleTypeTestFail(string vehicle)
         {
             // Arrange
             Car c = new Car();
+            string failVehicle = vehicle;
 
             // Act 
-            c.Vehicle = failVehicle;
+            //c.Vehicle = failVehicle;
 
             // Assert
-            Assert.AreEqual(failVehicle,c.Vehicle);
+            Assert.AreNotEqual(vehicle,c.Vehicle);
+           // Assert.IsNotNull(c.Vehicle);
         }
     }
 }
