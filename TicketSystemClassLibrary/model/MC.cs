@@ -27,6 +27,8 @@ namespace TicketSystemClassLibrary.model
             }
         }
 
+        public override bool BroBizz { get => BroBizz; set => BroBizz = value; }
+
         public MC()
         {
 
@@ -42,7 +44,14 @@ namespace TicketSystemClassLibrary.model
         // methods
         public double MCPrice(double mcPrice)
         {
-            mcPrice = 125.0;
+            if(BroBizz=false)
+            {
+                mcPrice = 125.0;
+            }
+            if(BroBizz=true)
+            {
+                mcPrice =118.75;
+            }
             return mcPrice;
         }
 

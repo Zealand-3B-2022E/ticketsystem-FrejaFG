@@ -29,6 +29,7 @@ namespace TicketSystemClassLibrary.model
 
         public override string VehicleType { get => _vehicleType;
             set =>_vehicleType=value; }
+        public override bool BroBizz { get => BroBizz; set => BroBizz=value; }
 
         public Car()
         {
@@ -47,7 +48,14 @@ namespace TicketSystemClassLibrary.model
 
         public double CarPrice(double carPrice)
         {
-            carPrice = 240.0;
+            if (BroBizz = false)
+            {
+                carPrice = 240.0;
+            }
+            if (BroBizz = true)
+            {
+                carPrice = 228.0;
+            }
             return carPrice;
         }
 

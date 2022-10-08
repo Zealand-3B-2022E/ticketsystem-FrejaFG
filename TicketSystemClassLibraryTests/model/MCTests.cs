@@ -41,6 +41,22 @@ namespace TicketSystemClassLibrary.model.Tests
             Assert.AreEqual(failPrice, price);
         }
 
+        [TestMethod]
+        [DataRow(218.75)]
+        public void TestPriceDiscount(double price)
+        {
+            // Arrange
+            MC mc = new MC();
+            double expectedPrice = price;
+            double delta = 0.01;
+
+            // Act
+            mc.mcPrice = price;
+
+            // Assert
+            Assert.AreEqual(expectedPrice, price, delta);
+        }
+
         [TestMethod()]
         [DataRow("MC")]
         [DataRow("mc")]

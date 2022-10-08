@@ -14,21 +14,26 @@ namespace TicketSystemClassLibrary.model
         private DateTime _date;
         private double _price;
         private string _vehicleType;
+        private bool _broBizz;
 
 
         public Vehicle()
         {
-            //Licenseplate = "1234567";
-            //Date = DateTime.Now;
-            //Price = 240.0;
-            //VehicleType = "Car";
+            
         }
-        public Vehicle(string licenseplate, DateTime date, double price, string vehicleType)
+        public Vehicle(string licenseplate, DateTime date, double price, string vehicleType, bool broBizz)
         {
             Licenseplate = licenseplate;
             Date = date;
             Price = price;
             VehicleType = vehicleType;
+            BroBizz = broBizz;
+        }
+
+        public abstract bool BroBizz
+        {
+            get;
+            set; 
         }
 
         public string Licenseplate
@@ -50,24 +55,13 @@ namespace TicketSystemClassLibrary.model
 
         public abstract string VehicleType
         {
-            get;set;
+            get;
+            set;
         }
 
         public override string ToString()
         {
-            return $" {nameof(Licenseplate)}: {Licenseplate} - {nameof(Date)}: {Date} - {nameof(Price)}: {Price}";
-        }
-
-        private void CheckLicense(string licenseplate)
-        {
-            if (string.IsNullOrWhiteSpace(licenseplate))
-            {
-                throw new ArgumentNullException("Nummerplade er påkrævet");
-            }
-            if (7 < licenseplate.Length)
-            {
-                throw new ArgumentException("Nummerpladen må ikke indeholde mere end 7 karakterer.");
-            }
+            return $" {nameof(Licenseplate)}: {Licenseplate} - {nameof(Date)}: {Date} - {nameof(Price)}: {Price} - Har en{nameof(BroBizz)}: {BroBizz}";
         }
 
     }
