@@ -11,6 +11,8 @@ namespace TicketSystemClassLibrary.model.Tests
     [TestClass()]
     public class MCTests
     {
+        private MC mc = null;
+
         [TestMethod()]
         [DataRow(125.0)]
         public void TestMCPriceOK(double price)
@@ -55,7 +57,7 @@ namespace TicketSystemClassLibrary.model.Tests
         }
 
         [TestMethod()]
-       // [DataRow(null)]
+        // [DataRow(null)]
         [DataRow("")]
         [DataRow("Car")]
         public void VehicleTypeTestFail(string vehicle)
@@ -64,10 +66,42 @@ namespace TicketSystemClassLibrary.model.Tests
             MC mc = new MC();
 
             // Arrange
-           // mc.Vehicle = vehicle;
+            // mc.Vehicle = vehicle;
 
             // Assert
-            Assert.AreNotEqual(vehicle,mc.VehicleType);
+            Assert.AreNotEqual(vehicle, mc.VehicleType);
+        }
+
+        [TestMethod()]
+        [DataRow("1")]
+        [DataRow(" 2    7")]
+        [DataRow("1234567")]
+        public void LicenseTestOK(string licenseplate)
+        {
+            // Arrange
+            MC mc = new MC();
+
+            // Act
+            mc.LicenseplateMC = licenseplate;
+
+            // Assert
+            Assert.AreEqual(mc.LicenseplateMC,licenseplate);
+        }
+
+        [TestMethod()]
+        [DataRow("")]
+        [DataRow("12345678")]
+        public void LicenseTestFail(string licenseplate)
+        {
+            // Arrange
+            string rejectedLicense = licenseplate;
+
+            // Assert
+            Assert.ThrowsException<ArgumentException>(() =>
+            {
+                MC mc = new MC(licenseplate, DateTime.Today, 125.0,"MC");
+            });
+
         }
     }
 }

@@ -17,6 +17,28 @@ namespace TicketSystemClassLibrary.model
         public double mcPrice;
         private string? _vehicleType;
 
+        public string LicenseplateMC
+        {
+            get => Licenseplate;
+            set
+            {
+                CheckLicenseplate(value);
+                Licenseplate = value;
+            }
+        }
+
+        public MC()
+        {
+
+        }
+        public MC(string licensePlate, DateTime date, double price, string vehicleType)
+        {
+            LicenseplateMC = licensePlate;
+            Date = date;
+            Price = price;
+            VehicleType = vehicleType;
+        }
+
         // methods
         public double MCPrice(double mcPrice)
         {
@@ -34,6 +56,14 @@ namespace TicketSystemClassLibrary.model
         public override string ToString()
         {
             return $" {nameof(Price)}: {Price} {nameof(VehicleType)}: {VehicleType} ";
+        }
+
+        private void CheckLicenseplate(string licenseplate)
+        {
+            if (licenseplate.Length < 1 || licenseplate.Length > 7)
+            {
+                throw new ArgumentException("Nummerplade må maks indeholde 7 tegn");
+            }
         }
     }
 }

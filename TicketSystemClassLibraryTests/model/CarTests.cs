@@ -109,7 +109,7 @@ namespace TicketSystemClassLibrary.model.Tests
             string rejectedLicense = licenseplate;
 
             // Assert
-            Assert.ThrowsException<ArgumentException>( ()=>
+            Assert.ThrowsException<ArgumentException>(()=>
                 {
                 Car c = new Car(licenseplate, DateTime.Today, 240.0, "Car");
                 });
