@@ -41,32 +41,33 @@ namespace TicketSystemClassLibrary.model.Tests
 
         [TestMethod()]
         [DataRow("MC")]
-        public void VehicleTypeTestOK(string OKvehicle)
+        [DataRow("mc")]
+        public void VehicleTypeTestOK(string vehicle)
         {
             // Arrange
             MC mc = new MC();
-            string expectedVehicle = OKvehicle;
+            string expectedVehicle = vehicle;
 
             // Act
-            mc.Vehicle = OKvehicle;
+            mc.Vehicle = vehicle;
 
             Assert.AreEqual(expectedVehicle, mc.Vehicle);
         }
 
         [TestMethod()]
-        [DataRow(null)]
+       // [DataRow(null)]
         [DataRow("")]
         [DataRow("Car")]
-        public void VehicleTypeTestFail(string failVehicle)
+        public void VehicleTypeTestFail(string vehicle)
         {
             // Arrange
             MC mc = new MC();
 
             // Arrange
-            mc.Vehicle = failVehicle;
+           // mc.Vehicle = vehicle;
 
             // Assert
-            Assert.AreEqual(failVehicle,mc.Vehicle);
+            Assert.AreNotEqual(vehicle,mc.Vehicle);
         }
     }
 }

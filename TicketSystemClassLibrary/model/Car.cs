@@ -12,10 +12,10 @@ namespace TicketSystemClassLibrary.model
         // Properties
         public string Licenseplate { get; set; }
         public DateTime Date { get; set; }
-        public override double Price { get => carPrice; set => throw new NotImplementedException(); }
+        public /*override*/ double Price { get => carPrice; set => throw new NotImplementedException(); }
 
         public double carPrice;
-        public string Vehicle;
+        public string? Vehicle;
 
         // methods
         public double CarPrice(double carPrice)
