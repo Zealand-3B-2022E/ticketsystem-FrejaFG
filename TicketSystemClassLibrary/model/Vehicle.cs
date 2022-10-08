@@ -6,32 +6,35 @@ using System.Threading.Tasks;
 
 namespace TicketSystemClassLibrary.model
 {
-    public /*abstract*/class Vehicle
+    public abstract class Vehicle
     {
         // The class is abstract. it only exists when a spicifick instance is created
 
         private string _licenseplate="";
         private DateTime _date;
         private double _price;
+        private string _vehicleType;
 
 
         public Vehicle()
         {
-            Licenseplate = "1234567";
-            Date = DateTime.Now;
-            Price = 240.0;
+            //Licenseplate = "1234567";
+            //Date = DateTime.Now;
+            //Price = 240.0;
+            //VehicleType = "Car";
         }
-        public Vehicle(string licenseplate, DateTime date, double price)
+        public Vehicle(string licenseplate, DateTime date, double price, string vehicleType)
         {
-          Licenseplate=licenseplate;
+            Licenseplate = licenseplate;
             Date = date;
             Price = price;
+            VehicleType = vehicleType;
         }
 
         public string Licenseplate
         {
-            get/*=>_licenseplate*/;
-            set/*=>_licenseplate=value*/;
+            get=>_licenseplate;
+            set=>_licenseplate=value;
         }
         public DateTime Date
         {
@@ -39,15 +42,20 @@ namespace TicketSystemClassLibrary.model
             set=>_date=value;
         }
 
-        public/* abstract*/ double Price
+        public abstract double Price
         {
             get; // No 'get-set' here 
             set; // Because it is abstract!
         }
 
+        public abstract string VehicleType
+        {
+            get;set;
+        }
+
         public override string ToString()
         {
-            return $" {nameof(Licenseplate)}: {Licenseplate} - {nameof(Date)}: {Date} - {nameof(Price)}: {Price} ";
+            return $" {nameof(Licenseplate)}: {Licenseplate} - {nameof(Date)}: {Date} - {nameof(Price)}: {Price}";
         }
 
         private void CheckLicense(string licenseplate)

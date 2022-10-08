@@ -11,10 +11,11 @@ namespace TicketSystemClassLibrary.model
         // Properties
         public string LicensePlate { get; set; }
         public DateTime Date { get; set; }
-        public /*override*/ double Price { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public override double Price { get => mcPrice; set => mcPrice = value; }
+        public override string VehicleType { get => _vehicleType; set => _vehicleType = value; }
 
         public double mcPrice;
-        public string Vehicle;
+        private string? _vehicleType;
 
         // methods
         public double MCPrice(double mcPrice)
@@ -23,10 +24,10 @@ namespace TicketSystemClassLibrary.model
             return mcPrice;
         }
 
-        public string VehicleType(string MC)
+        public string VehicleTypeMC(string MC)
         {
-            Vehicle = MC;
-            return Vehicle;
+            VehicleType = MC;
+            return VehicleType;
         }
 
 

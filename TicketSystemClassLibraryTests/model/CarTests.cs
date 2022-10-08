@@ -40,7 +40,7 @@ namespace TicketSystemClassLibrary.model.Tests
             double failprice = price;
 
             //Act
-           // c.price = failprice;
+            // c.price = failprice;
 
             //Assert
             Assert.AreEqual(failprice, price);
@@ -57,14 +57,14 @@ namespace TicketSystemClassLibrary.model.Tests
             string expectedVehicle = vehicle;
 
             // Act
-            c.Vehicle = vehicle;
+            c.VehicleType = vehicle;
 
-            Assert.AreEqual(expectedVehicle, c.Vehicle);
+            Assert.AreEqual(expectedVehicle, c.VehicleType);
         }
 
         [TestMethod()]
         [DataRow("  ")]
-       // [DataRow(null)]
+        // [DataRow(null)]
         [DataRow("MC")]
         [DataRow("mc")]
         public void VehicleTypeTestFail(string vehicle)
@@ -77,8 +77,44 @@ namespace TicketSystemClassLibrary.model.Tests
             //c.Vehicle = failVehicle;
 
             // Assert
-            Assert.AreNotEqual(vehicle,c.Vehicle);
-           // Assert.IsNotNull(c.Vehicle);
+            Assert.AreNotEqual(vehicle, c.VehicleType);
+            // Assert.IsNotNull(c.Vehicle);
         }
+
+
+        [TestMethod()]
+        [DataRow("1")]
+        [DataRow(" 2    7")]
+        [DataRow("1234567")]
+        public void LicenseTestOK(string licenseplate)
+        {
+            // Arange
+            Car c = new Car();
+            string acceptedLicense = licenseplate;
+
+            // Act
+            c.LicenseplateCar = licenseplate;
+
+            // Assert
+            Assert.AreEqual(acceptedLicense,licenseplate);
+        }
+
+        [TestMethod()]
+        [DataRow("")]
+        [DataRow("12345678")]
+        public void LicenseTestFail(string licenseplate)
+        {
+            // Arrange
+            //Car c = new Car();
+            string rejectedLicense = licenseplate;
+
+            // Assert
+            Assert.ThrowsException<ArgumentException>( ()=>
+                {
+                Car c = new Car(licenseplate, DateTime.Today, 240.0, "Car");
+                });
+
+        }
+
     }
 }

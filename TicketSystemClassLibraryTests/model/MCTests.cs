@@ -49,9 +49,9 @@ namespace TicketSystemClassLibrary.model.Tests
             string expectedVehicle = vehicle;
 
             // Act
-            mc.Vehicle = vehicle;
+            mc.VehicleType = vehicle;
 
-            Assert.AreEqual(expectedVehicle, mc.Vehicle);
+            Assert.AreEqual(expectedVehicle, mc.VehicleType);
         }
 
         [TestMethod()]
@@ -67,7 +67,7 @@ namespace TicketSystemClassLibrary.model.Tests
            // mc.Vehicle = vehicle;
 
             // Assert
-            Assert.AreNotEqual(vehicle,mc.Vehicle);
+            Assert.AreNotEqual(vehicle,mc.VehicleType);
         }
     }
 }
