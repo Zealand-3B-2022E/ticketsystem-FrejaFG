@@ -46,6 +46,11 @@ namespace TicketSystemClassLibrary.model
 
         // methods
 
+        /// <summary>
+        /// Metode til at bestemme prisen for en bil
+        /// </summary>
+        /// <param name="carPrice"></param>
+        /// <returns></returns>
         public double CarPrice(double carPrice)
         {
             if (BroBizz = false)
