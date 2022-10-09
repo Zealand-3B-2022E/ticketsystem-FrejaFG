@@ -38,14 +38,24 @@ namespace StoreBaelt.Tests
             // Act
             v.Price = price;
 
+            // Assert
             Assert.AreEqual(expectedPrice,price,delta);
         }
 
         [TestMethod()]
-
+        [DataRow(0.0)]
+        [DataRow(7000.0)]
         public void StoreBaeltPriceTestFail(double price)
         {
-            Assert.Fail();
+            // Arrange
+            double failPrice = price;
+
+            // Act
+            v.Price = failPrice;
+
+            // Assert
+            Assert.AreNotEqual(failPrice,price,failPrice);
+           
         }
     }
 }

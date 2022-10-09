@@ -6,7 +6,7 @@ namespace StoreBaelt
     {
         private double _discount = 1.0;
         private double _weekendDiscount = 0.8;
-        private DayOfWeek dayofweek;
+        private DayOfWeek _dayofweek;
         public override bool BroBizz 
         {
             get => BroBizz;
@@ -36,8 +36,8 @@ namespace StoreBaelt
         }
         public DayOfWeek GetDayOfWeek
         {
-            get => dayofweek;
-            set => dayofweek = value;
+            get => _dayofweek;
+            set => _dayofweek = value;
         }
 
         public double BroBizzDiscount
@@ -96,17 +96,17 @@ namespace StoreBaelt
             }
         }
 
-        private void SetWeekendDiscount( double weekendDiscount, DayOfWeek dayOfWeek)
+        private void SetWeekendDiscount( double weekendDiscount, DayOfWeek dayOfWeek, string dayofweek)
         {
-            if(dayOfWeek == DayOfWeek.Saturday || dayOfWeek==DayOfWeek.Sunday)
+            if(dayOfWeek == DayOfWeek.Saturday || dayOfWeek == DayOfWeek.Sunday)
             {
                  weekendDiscount = 0.8;
-                string daofweekends = "Weekend";
+                 dayofweek = "Weekend";
             }
             if (dayOfWeek != DayOfWeek.Saturday || dayOfWeek != DayOfWeek.Sunday)
             {
                  weekendDiscount = 1.0;
-                string dayofweek = "Hverdag";
+                 dayofweek = "Hverdag";
             }
             else
             {
