@@ -6,7 +6,7 @@ namespace StoreBaelt
     {
         private double _discount = 1.0;
         private double _weekendDiscount = 0.8;
-        private DayOfWeek _dayOfWeek;
+        private DayOfWeek dayofweek;
         public override bool BroBizz 
         {
             get => BroBizz;
@@ -36,8 +36,8 @@ namespace StoreBaelt
         }
         public DayOfWeek GetDayOfWeek
         {
-            get => _dayOfWeek;
-            set => _dayOfWeek = value;
+            get => dayofweek;
+            set => dayofweek = value;
         }
 
         public double BroBizzDiscount
@@ -76,7 +76,7 @@ namespace StoreBaelt
 
         public override string ToString()
         {
-            return $" {nameof(BroBizz)} : {BroBizz} - Dag: {GetDayOfWeek} - {nameof(Discount)}: {string.Format("{0:P}", 1.0-Discount)} - Køretøj: {VehicleType} - {nameof(Price)}: {Price}";
+            return $" {nameof(BroBizz)} : {BroBizz} - Dag: {GetDayOfWeek} - {nameof(Discount)}: {string.Format("{0:P}", 1.0-Discount)} - Køretøj: {VehicleType} - {nameof(Price)}: {Price} - {nameof(StoreBaeltPrice)}: {Price}";
         }
 
         private void SetBroBizzDiscpunt(double broBizzDiscount)
@@ -86,9 +86,13 @@ namespace StoreBaelt
                 broBizzDiscount = 0.95;
             }
 
-            else 
+            if (BroBizz == false) 
             {
                 broBizzDiscount = 1.0;
+            }
+            else
+            {
+                throw new ArgumentException("Vælg Brobizz");
             }
         }
 
@@ -97,10 +101,16 @@ namespace StoreBaelt
             if(dayOfWeek == DayOfWeek.Saturday || dayOfWeek==DayOfWeek.Sunday)
             {
                  weekendDiscount = 0.8;
+                string daofweekends = "Weekend";
+            }
+            if (dayOfWeek != DayOfWeek.Saturday || dayOfWeek != DayOfWeek.Sunday)
+            {
+                 weekendDiscount = 1.0;
+                string dayofweek = "Hverdag";
             }
             else
             {
-                 weekendDiscount = 1.0;
+                throw new ArgumentException("Bad day :( ");
             }
         }
 
@@ -124,6 +134,10 @@ namespace StoreBaelt
                 StorebaeltPrice = StorebaeltPrice * BroBizzDiscount*WeekendPris;
             }
 
+            else
+            {
+                throw new ArgumentException("Bad Price :( ");
+            }
 
         }
     }

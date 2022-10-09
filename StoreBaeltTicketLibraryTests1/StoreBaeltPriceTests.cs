@@ -15,12 +15,12 @@ namespace StoreBaelt.Tests
         /// <summary>
         /// Shared instance field
         /// </summary>
-        private Car c = null;
+        private Vehicle v = null;
 
         [TestInitialize]
         public void BeforeEachTestMethod()
         {
-            c = new Car();
+            v = new Car();
         }
 
         [TestMethod()]
@@ -36,8 +36,7 @@ namespace StoreBaelt.Tests
             double delta = 0.001;
 
             // Act
-            c.Price = price;
-            //double actualprice = c.Price;
+            v.Price = price;
 
             Assert.AreEqual(expectedPrice,price,delta);
         }
