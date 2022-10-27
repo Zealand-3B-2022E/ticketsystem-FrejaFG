@@ -60,7 +60,7 @@ namespace TicketSystemClassLibrary.model.Tests
             c.carPrice = price;
 
             // Assert
-            Assert.AreEqual(expectedPrice, price, delta);
+            Assert.AreEqual(expectedPrice, price, 0.01);
         }
 
         [TestMethod()]

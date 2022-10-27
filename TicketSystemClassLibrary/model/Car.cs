@@ -8,6 +8,14 @@ namespace TicketSystemClassLibrary.model
 {
     public class Car:Vehicle
     {
+        // DETTE ER EN TEST !!!!!        // DETTE ER EN TEST !!!!!        // DETTE ER EN TEST !!!!!
+        // DETTE ER EN TEST !!!!!
+        // DETTE ER EN TEST !!!!!
+        // DETTE ER EN TEST !!!!!
+        // DETTE ER EN TEST !!!!!
+        // DETTE ER EN TEST !!!!!
+        // DETTE ER EN TEST !!!!!
+
 
         // Properties
         public string Licenseplate { get; set; }
@@ -20,7 +28,19 @@ namespace TicketSystemClassLibrary.model
 
         public double carPrice;
         private string? _vehicleType;
-
+        // DETTE ER EN TEST !!!!!
+        // DETTE ER EN TEST !!!!!
+        // DETTE ER EN TEST !!!!!
+        // DETTE ER EN TEST !!!!!
+        // DETTE ER EN TEST !!!!!
+        // DETTE ER EN TEST !!!!!
+        // DETTE ER EN TEST !!!!!
+        // DETTE ER EN TEST !!!!!
+        // DETTE ER EN TEST !!!!!
+        // DETTE ER EN TEST !!!!!
+        // DETTE ER EN TEST !!!!!
+        // DETTE ER EN TEST !!!!!
+        // DETTE ER EN TEST !!!!!
         public string LicenseplateCar
         {
             get => Licenseplate;
